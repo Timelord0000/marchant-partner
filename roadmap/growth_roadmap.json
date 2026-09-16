@@ -1,0 +1,124 @@
+{
+  "stages": [
+    {
+      "id": "stage_1_pricing",
+      "name": "Pricing & Transaction Value Optimization",
+      "description": "Structuring pricing to maximize revenue per transaction without losing customers.",
+      "trigger_signals": ["avg_transaction_value", "revenue_growth_percent"],
+      "trigger_keywords": ["pricing", "transaction value", "basket size", "upsell", "bundle", "discount", "margins"],
+      "strategies": [
+        {
+          "title": "Introduce Value Bundles",
+          "detail": "Group 2-3 frequently bought items into a combo priced 10-15% below individual total. This raises average basket size while giving customers a perceived deal.",
+          "expected_impact": "Increases avg_transaction_value by 8-15% over 2-3 months."
+        },
+        {
+          "title": "Tiered Pricing for Repeat Buyers",
+          "detail": "Offer small loyalty discounts (2-5%) on frequently repurchased items for customers who buy above a threshold. This encourages higher per-visit spend.",
+          "expected_impact": "Raises transaction frequency and avg_ticket together."
+        },
+        {
+          "title": "Strategic Markdowns on Slow Movers",
+          "detail": "Identify items with inventory_turnover below 2x/month and apply time-limited markdowns (15-25%) to free up working capital for faster-selling stock.",
+          "expected_impact": "Improves inventory_turnover and frees cash for high-demand products."
+        }
+      ]
+    },
+    {
+      "id": "stage_2_retention",
+      "name": "Customer Retention & Loyalty",
+      "description": "Building repeat-customer habits and reducing churn through loyalty programs and personalized engagement.",
+      "trigger_signals": ["customer_retention_rate", "has_loyalty_program"],
+      "trigger_keywords": ["retention", "loyalty", "repeat", "churn", "customers", "return", "comeback"],
+      "strategies": [
+        {
+          "title": "Launch a Simple Punch-Card Loyalty Program",
+          "detail": "Give customers a physical or digital punch card — buy 5 times, get 10% off the 6th visit. Low-tech, high-impact habit loop.",
+          "expected_impact": "Increases customer_retention_rate by 10-20% within 3 months."
+        },
+        {
+          "title": "Personalized Follow-Up for Lapsed Customers",
+          "detail": "Track customers who haven't visited in 2+ weeks. Send a simple WhatsApp message with a small welcome-back offer (5-10% off next purchase).",
+          "expected_impact": "Recovers 15-25% of lapsed customers at minimal cost."
+        },
+        {
+          "title": "Prioritize Service for Top 20% of Customers",
+          "detail": "Identify your highest-frequency customers and offer them priority — early access to new stock, reserved items, or personal greetings. Retention of high-value customers is worth 3-5x acquiring new ones.",
+          "expected_impact": "Reduces churn among highest-revenue customers by 30%+."
+        }
+      ]
+    },
+    {
+      "id": "stage_3_marketing",
+      "name": "Local Marketing & Footfall Growth",
+      "description": "Low-cost, high-impact marketing tactics to drive more foot traffic and local awareness.",
+      "trigger_signals": ["footfall_per_day", "marketing_spend_monthly"],
+      "trigger_keywords": ["marketing", "footfall", "traffic", "promotion", "awareness", "local", "advertising", "signage"],
+      "strategies": [
+        {
+          "title": "Street-Level Signage & Visual Merchandising",
+          "detail": "Invest in clear, visible signage within 50m of the shop. Use bright colors, large fonts, and 2-3 key offers. Physical signage has the best cost-per-impression for local businesses.",
+          "expected_impact": "Increases footfall_per_day by 10-25% with one-time investment."
+        },
+        {
+          "title": "Weekly Micro-Promotions",
+          "detail": "Run one small promotion per week (e.g., 'Tuesday 10% off on dairy') announced via WhatsApp groups or a small poster. Consistency beats intensity.",
+          "expected_impact": "Steadily increases footfall on specific days, smoothing revenue across the week."
+        },
+        {
+          "title": "Partner with Neighboring Shops",
+          "detail": "Cross-promote with 2-3 nearby non-competing businesses (e.g., a chai stall sends customers to you, you send customers to them). Shared flyers or bundle deals.",
+          "expected_impact": "Expands local reach without increasing marketing_spend_monthly significantly."
+        }
+      ]
+    },
+    {
+      "id": "stage_4_digital_adoption",
+      "name": "Digital Payments & Tech Adoption",
+      "description": "Moving toward digital transactions and basic tech tools to improve efficiency, traceability, and customer convenience.",
+      "trigger_signals": ["digital_payment_adoption"],
+      "trigger_keywords": ["digital", "payment", "upi", "online", "technology", "tech", "app", "scanner", "pos"],
+      "strategies": [
+        {
+          "title": "Promote UPI with a Small Discount",
+          "detail": "Offer a flat ₹5-10 discount on UPI payments for transactions above ₹200. This nudges cash-paying customers toward digital while keeping margins intact.",
+          "expected_impact": "Increases digital_payment_adoption by 15-30% over 2 months."
+        },
+        {
+          "title": "Set Up a Simple Digital Inventory System",
+          "detail": "Use a free POS app (e.g., Khatabook, Vyapar) to track stock digitally. This reduces manual counting errors and helps spot fast/slow movers.",
+          "expected_impact": "Reduces inventory losses by 5-10% and improves reorder decisions."
+        },
+        {
+          "title": "Collect Basic Customer Contacts (Opt-In)",
+          "detail": "Ask willing customers for their phone number at checkout for WhatsApp updates. Build a list of 100-200 customers over time for direct, free marketing.",
+          "expected_impact": "Creates a zero-cost marketing channel for future promotions."
+        }
+      ]
+    },
+    {
+      "id": "stage_5_operations",
+      "name": "Inventory & Operations Efficiency",
+      "description": "Optimizing stock management, supplier relationships, and daily operations to reduce waste and improve margins.",
+      "trigger_signals": ["inventory_turnover", "years_in_business"],
+      "trigger_keywords": ["inventory", "stock", "supplier", "operations", "waste", "efficiency", "turnover", "supply"],
+      "strategies": [
+        {
+          "title": "ABC Inventory Analysis",
+          "detail": "Classify inventory into A (top 20% items, 80% revenue), B (next 30%, 15% revenue), C (bottom 50%, 5% revenue). Focus management attention on A-items, reduce C-item depth.",
+          "expected_impact": "Improves inventory_turnover by 20-40% and frees working capital."
+        },
+        {
+          "title": "Negotiate Better Terms with Suppliers",
+          "detail": "For items you reorder weekly, negotiate 7-15 day payment terms instead of cash-on-delivery. This improves cash flow without changing prices.",
+          "expected_impact": "Frees 1-2 weeks of working capital for reinvestment."
+        },
+        {
+          "title": "Daily 10-Minute Operations Review",
+          "detail": "Spend 10 minutes each closing reviewing: what sold out, what didn't move, and any customer complaints. Small daily habits compound into better decisions.",
+          "expected_impact": "Reduces waste and improves stock-out rate by 15-25% over time."
+        }
+      ]
+    }
+  ]
+}

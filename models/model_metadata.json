@@ -1,0 +1,42 @@
+{
+  "model_type": "LinearRegression",
+  "features": [
+    "digital_payment_adoption",
+    "marketing_spend_monthly",
+    "customer_retention_rate",
+    "avg_transaction_value",
+    "footfall_per_day",
+    "inventory_turnover",
+    "years_in_business",
+    "has_loyalty_program"
+  ],
+  "numeric_features": [
+    "digital_payment_adoption",
+    "marketing_spend_monthly",
+    "customer_retention_rate",
+    "avg_transaction_value",
+    "footfall_per_day",
+    "inventory_turnover",
+    "years_in_business"
+  ],
+  "binary_features": [
+    "has_loyalty_program"
+  ],
+  "target": "revenue_growth_percent",
+  "metrics": {
+    "r2_score": 0.8513,
+    "mae": 2.4256,
+    "rmse": 2.9405
+  },
+  "feature_importance": {
+    "digital_payment_adoption": 2.0916,
+    "marketing_spend_monthly": 4.46,
+    "customer_retention_rate": 2.3127,
+    "avg_transaction_value": 2.5392,
+    "footfall_per_day": 2.1261,
+    "inventory_turnover": 2.4181,
+    "years_in_business": 2.1191,
+    "has_loyalty_program": 2.313
+  },
+  "training_samples": 1000
+}
