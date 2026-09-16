@@ -87,6 +87,10 @@ streamlit run frontend/app.py
 - **RMSE:** 2.94
 - **Training samples:** 1,000
 
+## Performance
+
+Heavy imports (sklearn, pandas, LLM SDKs) are lazy-loaded — only imported when first needed. This keeps initial page load under 300ms. The regression model, merchant store, and roadmap retriever are cached via `@st.cache_resource` so subsequent loads are instant.
+
 ## Tech Stack
 
 - **Backend:** FastAPI, Python

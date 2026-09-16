@@ -15,12 +15,6 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 import streamlit as st
-import plotly.graph_objects as go
-
-from backend.model_loader import RegressionEngine
-from backend.merchant_store import MerchantStore
-from backend.roadmap_retriever import RoadmapRetriever
-from backend.llm_orchestrator import generate_recommendation
 
 # ---------------------------------------------------------------------------
 # Page config
@@ -36,16 +30,19 @@ st.set_page_config(
 # ---------------------------------------------------------------------------
 @st.cache_resource
 def load_engine():
+    from backend.model_loader import RegressionEngine
     engine = RegressionEngine()
     engine.load()
     return engine
 
 @st.cache_resource
 def load_store():
+    from backend.merchant_store import MerchantStore
     return MerchantStore()
 
 @st.cache_resource
 def load_retriever():
+    from backend.roadmap_retriever import RoadmapRetriever
     retriever = RoadmapRetriever()
     retriever.load()
     return retriever
@@ -89,6 +86,8 @@ st.markdown(f"**Seasonal Notes:** {profile['seasonal_notes']}")
 # --- Transaction Pattern Chart ---
 st.subheader("📊 Business Profile")
 
+import plotly.graph_objects as go
+
 fig = go.Figure()
 fig.add_trace(go.Bar(
     x=["Digital Adoption", "Retention Rate", "Loyalty Program"],
@@ -120,6 +119,8 @@ st.subheader("🎯 Growth Recommendation")
 
 if st.button("Generate Recommendation", type="primary", key="recommend_btn"):
     with st.spinner("Analyzing merchant data and generating advice..."):
+        from backend.llm_orchestrator import generate_recommendation
+
         # Run regression
         regression_signal = regression_engine.predict(features)
 

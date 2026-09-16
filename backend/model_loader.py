@@ -6,10 +6,6 @@ import json
 from pathlib import Path
 from typing import Any, Optional
 
-import joblib
-import pandas as pd
-from sklearn.pipeline import Pipeline
-
 MODELS_DIR = Path(__file__).resolve().parent.parent / "models"
 
 
@@ -17,11 +13,13 @@ class RegressionEngine:
     """Loads and runs predictions using the pre-trained regression model."""
 
     def __init__(self):
-        self.pipeline: Optional[Pipeline] = None
+        self.pipeline = None
         self.metadata: Optional[dict] = None
         self._loaded = False
 
     def load(self) -> None:
+        import joblib
+
         model_path = MODELS_DIR / "regression_model.joblib"
         meta_path = MODELS_DIR / "model_metadata.json"
 
@@ -53,6 +51,8 @@ class RegressionEngine:
         """
         if not self._loaded:
             self.load()
+
+        import pandas as pd
 
         df = pd.DataFrame([features])
         prediction = float(self.pipeline.predict(df)[0])
