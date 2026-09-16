@@ -9,6 +9,11 @@ from pathlib import Path
 # Add parent dir to path for imports
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from dotenv import load_dotenv
+
+# Load env vars so LLM API keys are available to llm_orchestrator
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
 import streamlit as st
 import plotly.graph_objects as go
 
