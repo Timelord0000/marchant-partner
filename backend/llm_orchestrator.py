@@ -20,7 +20,7 @@ def _get_gemini():
         if not api_key:
             raise RuntimeError("GEMINI_API_KEY not set in environment. Add it to .env file.")
         genai.configure(api_key=api_key)
-        _gemini_client = genai.GenerativeModel("gemini-2.0-flash")
+        _gemini_client = genai.GenerativeModel("gemini-3.6-flash")
     return _gemini_client
 
 
@@ -147,6 +147,8 @@ def generate_recommendation(
     """
     prompt = _build_prompt(regression_signal, merchant_profile, roadmap_chunks)
 
+    gemini_err = None
+
     # Try Gemini first
     try:
         model = _get_gemini()
@@ -159,14 +161,16 @@ def generate_recommendation(
             result["_provider"] = "gemini"
             return result
         raise ValueError("Invalid output structure from Gemini")
-    except Exception as gemini_err:
+    except Exception as e:
+        gemini_err = e
         print(f"Gemini failed: {gemini_err}. Falling back to Groq...")
 
     # Fallback to Groq
+    groq_err = None
     try:
         client = _get_groq()
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="groq/compound-mini",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": prompt},
@@ -179,7 +183,8 @@ def generate_recommendation(
             result["_provider"] = "groq"
             return result
         raise ValueError("Invalid output structure from Groq")
-    except Exception as groq_err:
+    except Exception as e:
+        groq_err = e
         print(f"Groq also failed: {groq_err}")
         return {
             "recommendation": "Unable to generate recommendation at this time. Please try again.",

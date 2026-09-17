@@ -95,6 +95,6 @@ Heavy imports (sklearn, pandas, LLM SDKs) are lazy-loaded — only imported when
 
 - **Backend:** FastAPI, Python
 - **ML:** scikit-learn, pandas, joblib
-- **LLMs:** Google Gemini 2.0 Flash, Groq Llama 3.3 70B
+- **LLMs:** Google Gemini 3.6 Flash, Groq Compound Mini
 - **Frontend:** Streamlit, Plotly
 - **Database:** SQLite

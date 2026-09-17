@@ -18,7 +18,7 @@ class MerchantStore:
 
     def _ensure_conn(self) -> sqlite3.Connection:
         if self.conn is None:
-            self.conn = sqlite3.connect(str(DB_PATH))
+            self.conn = sqlite3.connect(str(DB_PATH), check_same_thread=False)
             self.conn.row_factory = sqlite3.Row
         return self.conn
 
